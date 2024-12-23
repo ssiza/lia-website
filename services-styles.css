@@ -94,57 +94,93 @@ img {
 }
 
 /* Mobile Navigation */
+/* Mobile Navigation */
 .nav-mobile {
-  display: none;
-}
-
-.nav-mobile a {
+    display: none;
+    /* Hide the mobile menu by default */
+  }
+  
+  .nav-mobile a {
     display: block;
     margin-bottom: 10px;
     color: white;
     text-decoration: none;
     padding: 10px;
-}
-
-.hamburger {
-  display: none;
-  cursor: pointer;
-  width: 30px;
-  height: auto;
-  transition: transform 0.3s;
-}
-
-.hamburger.hamburger--active {
-    transform: rotate(90deg);
+    opacity: 0;
+    /* Initially hide the links (opacity 0 is transparent) */
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .nav-mobile a:hover {
+    color: #000000;
+    /* change text color to black*/
+  }
+  
+  .hamburger {
+    display: none;
+    /* Initially hidden */
+    cursor: pointer;
+    width: 30px;
+    height: auto;
     transition: transform 0.3s;
-}
-
-/* Mobile Styles and Animation*/
-@media (max-width: 768px) {
+    transform: rotate(0deg);
+    /* default hamburger rotation is 0*/
+  }
+  
+  .hamburger.hamburger--active {
+    transform: rotate(90deg);
+    /* hamburger rotation when active*/
+    transition: transform 0.3s;
+  }
+  
+  /* Mobile Styles and Animation*/
+  @media (max-width: 768px) {
     .nav {
-      display: none; /* Hide the regular nav on mobile */
+      display: none;
+      /* Hide the regular nav on mobile */
+      width: 0;
+      /* make sure the element takes up no space */
+      height: 0;
     }
+  
     .nav-mobile {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background-color: #2F7D46;
-        padding: 20px;
-        border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      /* Positions the menu absolutely */
+      top: 70px;
+      /* Adjust top position */
+      right: 1px;
+      /* Adjust right position */
+      background-color: #2f7d46;
+      padding: 5px;
+      border-radius: 5px;
+      /* Other necessary styles, such as max-height, etc */
+      max-height: 0;
+      /* Initial value for animation */
+      overflow: hidden;
+      /* Ensure elements are hidden correctly */
+      transition: max-height 0.3s ease-out;
+      /* add transition for the animation */
     }
-     .hamburger {
-        display: block;
-        height: 30px;
-        cursor: pointer;
+  
+    .hamburger {
+      display: block;
+      /* Make sure hamburger is visible */
+      height: 30px;
+      cursor: pointer;
     }
-
-     .nav-mobile--open {
-        display: flex;
-     }
-
-}
+  
+    .nav-mobile--open {
+      max-height: 1000px;
+      /* Ensure menu is large enough */
+    }
+  
+    .nav-mobile--open a {
+      opacity: 1;
+      /* Show the links with opacity 1*/
+    }
+  }
 
 /* Services Section  (Modified to be specific to service page) */
 .services {
@@ -233,46 +269,74 @@ margin: 0 auto; /* Centers the grid on the page */
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
 }
-/* Footer (no change) */
+/* Footer */
 .footer {
-    background-color: #2F7D46;
+    background-color: #2f7d46;
     color: white;
     padding: 20px;
     text-align: center;
-       margin-top: auto;
-}
-.footer-container {
+  }
+  
+  .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Changed from space-between to center for mobile */
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-}
-.footer-brand-container {
+    padding: 0 15px;
+      flex-wrap: wrap; /*wrap the content of footer when not enough space*/
+      gap: 20px; /* add gap between items */
+  }
+  
+  .footer-brand-container {
     display: flex;
     align-items: center;
-    text-align: left;
-}
-.footer-logo {
-   height: 60px; /* Adjust logo size */
-      max-height: 70px;
-      margin-right: 10px;
-      vertical-align: middle;
-      display: inline-block;
-    width: auto; /* set to auto to maintain aspect ratio*/
-      max-width: 70px; /*Set max width so it does not grow beyond a limit*/
-}
-.footer-brand {
-    text-align: left;
+    text-align: center; /* change from left to center */
+  }
+  
+  .footer-logo {
+    height: 60px;
+    /* Adjust logo size */
+    max-height: 70px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    width: auto;
+    /* set to auto to maintain aspect ratio*/
+    max-width: 70px;
+    /*Set max width so it does not grow beyond a limit*/
+  }
+  
+  .footer-brand {
+    text-align: center; /* change from left to center*/
     font-size: 24px;
     font-weight: bold;
-}
-.footer-contact {
-    text-align: right;
-}
-.footer-contact div {
+  }
+  
+  .footer-contact {
+    text-align: center; /*change from right to center */
+    /*add word-wrap to ensure text does not overflow*/
+      /* Add some space between this and the brand area*/
+  
+  }
+  
+  .footer-contact div {
     margin-bottom: 5px;
-}
+  }
+  @media (min-width: 768px) {
+      .footer-container {
+        justify-content: space-between; /* re-apply space-between on large screens*/
+    }
+     .footer-brand-container {
+        text-align: left; /* change from center back to left */
+    }
+     .footer-brand {
+        text-align: left; /* change from center back to left*/
+    }
+     .footer-contact {
+         text-align: right; /*change from center back to right*/
+     }
+  }
 /* Animations (no change)*/
 @keyframes fade-in {
     from {
