@@ -1,15 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  // --- Hamburger Menu Toggle ---
+
+  // Get the hamburger menu and mobile menu elements
   const hamburger = document.querySelector('.hamburger');
   const navMobile = document.querySelector('.nav-mobile');
 
-  if (hamburger && navMobile) { // Check if the elements exist
-      hamburger.addEventListener('click', function() {
-          navMobile.classList.toggle('nav-mobile--open');
-          hamburger.classList.toggle('hamburger--active'); // Toggle the class for hamburger rotation
-      });
-  }
+  // Add an event listener to the hamburger menu
+  hamburger.addEventListener('click', () => {
+    // Toggle the mobile menu
+    navMobile.classList.toggle('nav-mobile--open');
+    hamburger.classList.toggle('hamburger--active'); // Toggle hamburger icon animation
+  });
+
+
+  // Add an event listener to the document to close the mobile menu if clicked outside
+    document.addEventListener('click', (event) => {
+        if (navMobile.classList.contains('nav-mobile--open')) {  // only close if menu is open
+        const isClickInsideMenu = navMobile.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+            if (!isClickInsideMenu && !isClickOnHamburger) {
+              navMobile.classList.remove('nav-mobile--open');
+              hamburger.classList.remove('hamburger--active');
+            }
+        }
+
+    });
+
+
+
+
+
+
 
   // --- Smooth Scrolling for Anchor Links ---
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
