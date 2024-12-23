@@ -183,23 +183,31 @@ img {
   }
 
 /* Services Section  (Modified to be specific to service page) */
+
 .services {
     background-color: #ecf0f1;
     padding: 50px 20px;
-     text-align: center;
-    flex: 1;
-}
-.section-title {
+    text-align: center;
+    margin: 0 auto; /*add this to center the content on screen */
+  }
+  @media (min-width:768px) {
+      .services {
+          max-width: 1200px;
+      }
+  }
+  
+  .section-title {
     font-size: 2rem;
     margin-bottom: 30px;
-}
-.services-container {
+  }
+  
+  .services-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
   }
   
-.service-item {
+  .service-item {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -209,25 +217,29 @@ img {
     display: flex;
     overflow: hidden;
     align-items: center;
-   }
-
-.service-item:hover {
+  }
+  
+  .service-item:hover {
     transform: translateY(-5px);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-}
-.service-item-content {
+  }
+  
+  .service-item-content {
     flex: 1;
     z-index: 2;
-}
-.service-item h3 {
+  }
+  
+  .service-item h3 {
     font-size: 1.5rem;
     margin-bottom: 5px;
-}
-.service-item p {
+  }
+  
+  .service-item p {
     color: #777;
     margin: 0;
-}
-.service-image-container {
+  }
+  
+  .service-image-container {
     position: absolute;
     top: 0;
     right: 0;
@@ -235,8 +247,9 @@ img {
     width: 50%;
     z-index: 1;
     pointer-events: none;
-}
-.service-image {
+  }
+  
+  .service-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -244,7 +257,19 @@ img {
     opacity: 0;
     transform: translateX(100%);
     animation: fade-in-from-right-service 1.5s ease-in forwards;
-}
+  }
+  
+  @keyframes fade-in-from-right-service {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 @keyframes fade-in-from-right-service {
     from {
       opacity: 0;
