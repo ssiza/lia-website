@@ -1,19 +1,24 @@
 /* General Styles (no change) */
 body {
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fdf5e6;
-    color: #333;
-    scroll-behavior: smooth;
-    background-image: url('img/body-background.png');
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdf5e6;
+  color: #333;
+  scroll-behavior: smooth;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto;
+  /* Use the default image dimensions*/
+  background-attachment: scroll;
+}
+/* Use media queries to control background size*/
+@media (min-width: 768px) {
+  /* Large screen sizes */
+  body {
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll;
-        min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    /* Change the background size on larger screens*/
+  }
 }
 
 h1, h2, h3 {
