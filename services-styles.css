@@ -195,14 +195,10 @@ img {
 }
 .services-container {
     display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Uniform column sizes */
-gap: 30px;
-padding: 50px; /* Reduced padding for less empty space */
-max-width: 1200px; /* Restricts grid width for better balance */
-margin: 0 auto; /* Centers the grid on the page */
-
-    
-}
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
 .service-item {
     background-color: white;
     padding: 20px;
