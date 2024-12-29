@@ -1,289 +1,449 @@
-/* General Styles (no change) */
+/* Merged CSS from CSS File 1 and CSS File 2 */
+
+/* General Styles (Updated with site-wrapper from file 2) */
 body {
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fdf5e6;
-    color: #333;
-    scroll-behavior: smooth;
-    background-image: url('img/body-background.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll;
-        min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdf5e6;
+  color: #333;
+  scroll-behavior: smooth;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto;
+  /* Use the default image dimensions*/
+  background-attachment: scroll;
 }
 
-h1, h2, h3 {
-    margin: 0;
-    padding: 0;
+/* Added wrapper from File 2 to make footer stay on the bottom*/
+.site-wrapper {
+    min-height: 100vh; /* Make it at least full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Use media queries to control background size (From File 1)*/
+@media (min-width: 768px) {
+  /* Large screen sizes */
+  body {
+    background-size: cover;
+    /* Change the background size on larger screens*/
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Header */
+/* Header (Combined from File 1 and File 2 - with consistent padding) */
 .header {
-  background-color: #2F7D46;
-  padding: 15px 20px;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    background-color: #2f7d46; /* Consistent color */
+    padding: 15px 20px; /* Consistent padding */
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px; /*Added padding from file 1 to make sure the nav does not touch edge*/
 }
 
 .logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 .header-logo {
-  height: 60px; /* Adjust logo size */
-    max-height: 70px;
-    margin-right: 10px;
-    vertical-align: middle;
-    display: inline-block;
-    width: auto; /* set to auto to maintain aspect ratio*/
-    max-width: 70px; /*Set max width so it does not grow beyond a limit*/
+  height: 60px;
+  /* Adjust logo size */
+  max-height: 70px;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  width: auto;
+  /* set to auto to maintain aspect ratio*/
+  max-width: 70px;
+  /*Set max width so it does not grow beyond a limit*/
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-    vertical-align: middle;
-    display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  vertical-align: middle;
+  display: inline-block;
 }
 
-/* Default Navigation */
+/* Default Navigation (Combined from File 1 and File 2)*/
 .nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /*Spacing for the menu items*/
+  margin-right: 20px;
+  /* Move to the right */
 }
 
 .nav a {
-    color: white;
-    padding: 5px 10px;
-    transition: color 0.3s ease-in-out;
+  color: white;
+  padding: 5px 10px;
+  transition: color 0.3s ease-in-out;
 }
 
 .nav a:hover {
-    color: #000000;
+  color: #000000;
 }
 
-/* Mobile Navigation */
+/* Mobile Navigation (Combined and cleaned from File 1 and File 2)*/
 .nav-mobile {
   display: none;
+  /* Hide the mobile menu by default */
 }
 
 .nav-mobile a {
-    display: block;
-    margin-bottom: 10px;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
+  display: block;
+  margin-bottom: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  opacity: 0;
+  /* Initially hide the links (opacity 0 is transparent) */
+  transition: opacity 0.3s ease-out;
+}
+
+.nav-mobile a:hover {
+  color: #000000;
+  /* change text color to black*/
 }
 
 .hamburger {
   display: none;
+  /* Initially hidden */
   cursor: pointer;
   width: 30px;
   height: auto;
   transition: transform 0.3s;
+  transform: rotate(0deg);
+  /* default hamburger rotation is 0*/
 }
 
 .hamburger.hamburger--active {
-    transform: rotate(90deg);
-    transition: transform 0.3s;
+  transform: rotate(90deg);
+  /* hamburger rotation when active*/
+  transition: transform 0.3s;
 }
 
-/* Mobile Styles and Animation*/
+/* Mobile Styles and Animation (Combined and fixed from File 1 and File 2)*/
 @media (max-width: 768px) {
-    .nav {
-      display: none; /* Hide the regular nav on mobile */
-    }
-    .nav-mobile {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background-color: #2F7D46;
-        padding: 20px;
-        border-radius: 5px;
-    }
-     .hamburger {
-        display: block;
-        height: 30px;
-        cursor: pointer;
-    }
+  .nav {
+    display: none;
+    /* Hide the regular nav on mobile */
+    width: 0;
+    /* make sure the element takes up no space */
+    height: 0;
+  }
 
-     .nav-mobile--open {
-        display: flex;
-     }
-
-}
-
-/* Services Section  (Modified to be specific to service page) */
-.services {
-    background-color: #ecf0f1;
-    padding: 50px 20px;
-     text-align: center;
-    flex: 1;
-}
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-.services-container {
-    display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Uniform column sizes */
-gap: 30px;
-padding: 50px; /* Reduced padding for less empty space */
-max-width: 1200px; /* Restricts grid width for better balance */
-margin: 0 auto; /* Centers the grid on the page */
-
-    
-}
-.service-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
+  .nav-mobile {
     display: flex;
+    flex-direction: column;
+    position: absolute;
+    /* Positions the menu absolutely */
+    top: 70px;
+    /* Adjust top position */
+    right: 1px; /* Adjusted to match file 1 */
+    /* Adjust right position */
+    background-color: #2f7d46;
+    padding: 5px;
+    border-radius: 5px;
+    /* Other necessary styles, such as max-height, etc */
+    max-height: 0;
+    /* Initial value for animation */
     overflow: hidden;
-    align-items: center;
-   }
+    /* Ensure elements are hidden correctly */
+    transition: max-height 0.3s ease-out;
+    /* add transition for the animation */
+  }
+
+  .hamburger {
+    display: block;
+    /* Make sure hamburger is visible */
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .nav-mobile--open {
+    max-height: 1000px;
+    /* Ensure menu is large enough */
+    /*Added flex so that the menu is displayed*/
+  }
+
+  .nav-mobile--open a {
+    opacity: 1;
+    /* Show the links with opacity 1*/
+  }
+}
+
+/* Hero Section (From File 1) */
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 150px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /*add this to center the content on screen */
+}
+/*add max width so that it does not stretch on large resolutions*/
+@media (min-width:768px) {
+    .hero {
+        max-width: 1600px;
+    }
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.7);
+}
+
+.hero-heading {
+  font-size: 3rem;
+  margin-top: 20px;
+  animation: fade-in 1.5s ease-in;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.quote-container {
+  margin: 30px 0;
+}
+
+.btn-quote {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #27ae60;
+  color: white;
+  font-size: 18px;
+  border-radius: 50px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-quote:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Services Section (Mostly from File 1, with flex 1 from file 2 to allow it to grow)*/
+.services {
+  background-color: #ecf0f1;
+  padding: 50px 20px;
+  text-align: center;
+  margin: 0 auto; /*add this to center the content on screen */
+    flex: 1; /* make the services section grow and take up the content of the middle */
+}
+@media (min-width:768px) {
+    .services {
+        max-width: 1600px;
+    }
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
 
 .service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 .service-item-content {
-    flex: 1;
-    z-index: 2;
+  flex: 1;
+  z-index: 2;
 }
+
 .service-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
+
 .service-item p {
-    color: #777;
-    margin: 0;
+  color: #777;
+  margin: 0;
 }
+
 .service-image-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 50%;
-    z-index: 1;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 1;
+  pointer-events: none;
 }
+
 .service-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: fade-in-from-right-service 1.5s ease-in forwards;
+}
+
+@keyframes fade-in-from-right-service {
+  from {
     opacity: 0;
     transform: translateX(100%);
-    animation: fade-in-from-right-service 1.5s ease-in forwards;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-@keyframes fade-in-from-right-service {
-    from {
-      opacity: 0;
-      transform: translateX(100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-}
+
 .btn-quote:hover {
   transform: scale(1.1) translateY(-5px);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s;
 }
+
 .service-item:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s;
 }
-/* Footer (no change) */
+
+/* Footer (Combined from File 1 and File 2) */
 .footer {
-    background-color: #2F7D46;
-    color: white;
-    padding: 20px;
-    text-align: center;
-       margin-top: auto;
+  background-color: #2f7d46;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /*Push the footer to the bottom */
 }
+
 .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .footer-brand-container {
-    display: flex;
-    align-items: center;
-    text-align: left;
+  display: flex;
+  align-items: center;
+  text-align: center; /* change from left to center */
 }
+
 .footer-logo {
-   height: 60px; /* Adjust logo size */
-      max-height: 70px;
-      margin-right: 10px;
-      vertical-align: middle;
-      display: inline-block;
-    width: auto; /* set to auto to maintain aspect ratio*/
-      max-width: 70px; /*Set max width so it does not grow beyond a limit*/
+  height: 60px;
+  /* Adjust logo size */
+  max-height: 70px;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  width: auto;
+  /* set to auto to maintain aspect ratio*/
+  max-width: 70px;
+  /*Set max width so it does not grow beyond a limit*/
 }
+
 .footer-brand {
-    text-align: left;
-    font-size: 24px;
-    font-weight: bold;
+  text-align: center; /* change from left to center*/
+  font-size: 24px;
+  font-weight: bold;
 }
+
 .footer-contact {
-    text-align: right;
+  text-align: center; /*change from right to center */
+  /*add word-wrap to ensure text does not overflow*/
+    /* Add some space between this and the brand area*/
+
 }
+
 .footer-contact div {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
-/* Animations (no change)*/
+@media (min-width: 768px) {
+    .footer-container {
+      justify-content: space-between; /* re-apply space-between on large screens*/
+  }
+   .footer-brand-container {
+      text-align: left; /* change from center back to left */
+  }
+   .footer-brand {
+      text-align: left; /* change from center back to left*/
+  }
+   .footer-contact {
+       text-align: right; /*change from center back to right*/
+   }
+}
+
+/* Animations (From file 1)*/
 @keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .fade-in {
-    animation: fade-in 1.5s ease-in;
+  animation: fade-in 1.5s ease-in;
 }

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Home Service - Li'A Home Service in Everett, MA</title>
+    <meta name="description" content="Book our various home services such as cleaning, repair, or delivery through our online form. Conveniently schedule a service and review the information before submitting.">
+    <meta name="keywords" content="book home service, cleaning, repair, delivery, everett, ma, book a service">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="detail.css">
+         <!-- Favicon Links -->
+    <!--
+       The favicon.ico file goes into the root directory
+       not into the /img/ folder
+    -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+</head>
+<body>
+     <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+               <img src="img/logo.png" alt="Li'A Home Service Logo" class="header-logo">
+                <h1 class="logo">Li'A Home Service</h1>
+            </a>
+            <nav class="nav">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                 <a href="get-quote.html" target="_blank" rel="noopener noreferrer">Get Started</a>
+            </nav>
+            <img class="hamburger" src="img/hamburger-menu.svg" alt="Menu">
+            <nav class="nav-mobile">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                 <a href="get-quote.html" target="_blank" rel="noopener noreferrer">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="service-details">
+      <h1 class="service-title">Book a Home Service</h1>
+      <form action="https://formspree.io/f/mdkkarnp" method="post" class="booking-form">
+          <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+
+          <div>
+              <label for="address">Address:</label>
+              <input type="text" id="address" name="address" required>
+          </div>
+          <div>
+              <label for="postal_code">Postal Code:</label>
+              <input type="text" id="postal_code" name="postal_code" required>
+          </div>
+
+          <div>
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" name="phone" required>
+          </div>
+
+          <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div>
+              <label>Select Services:</label>
+              <div class="service-checklist">
+                  <ul class="checklist-options">
+                      <li>
+                          <input type="checkbox" id="service-cleaning" name="service_options" value="Cleaning">
+                          <label for="service-cleaning">Cleaning Tasks</label>
+                      </li>
+                      <li>
+                          <input type="checkbox" id="service-repair" name="service_options" value="Repair">
+                          <label for="service-repair">Laundry</label>
+                      </li>
+                      <li>
+                          <input type="checkbox" id="service-delivery" name="service_options" value="Delivery">
+                          <label for="service-delivery">Meal Preparation</label>
+                      </li>
+                     <li>
+                          <input type="checkbox" id="service-cleaning-2" name="service_options" value="Cleaning-2">
+                          <label for="service-cleaning-2">Shopping</label>
+                      </li>
+                  </ul>
+                  <input type="hidden" id="service" name="service" value="">
+              </div>
+          </div>
+          <div>
+              <label for="date">Date:</label>
+              <input type="date" id="date" name="date" required>
+          </div>
+
+          <div>
+              <label for="time">Time:</label>
+              <select id="time" name="time" required>
+                  <option value="">Select Time</option>
+                  <option value="08:00">8:00 AM</option>
+                  <option value="09:00">9:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">1:00 PM</option>
+                  <option value="14:00">2:00 PM</option>
+                  <option value="15:00">3:00 PM</option>
+                  <option value="16:00">4:00 PM</option>
+                  <option value="17:00">5:00 PM</option>
+              </select>
+          </div>
+
+          <div>
+              <label for="notes">Special Notes:</label><br>
+              <textarea id="notes" name="notes"></textarea>
+          </div>
+          <input type="submit" value="Book Now" class="btn-book">
+           <div class="review-overlay">
+              <div class="review-section">
+                  <h2 class="review-title">Review your booking</h2>
+                  <div class="review-content">
+                      <p><b>Name:</b> <span id="review-name"></span></p>
+                      <p><b>Address:</b> <span id="review-address"></span></p>
+                      <p><b>Postal Code:</b> <span id="review-postal-code"></span></p>
+                      <p><b>Phone:</b> <span id="review-phone"></span></p>
+                      <p><b>Email:</b> <span id="review-email"></span></p>
+                      <p><b>Services:</b> <span id="review-service"></span></p>
+                      <p><b>Date:</b> <span id="review-date"></span></p>
+                      <p><b>Time:</b> <span id="review-time"></span></p>
+                      <p><b>Notes:</b> <span id="review-notes"></span></p>
+                  </div>
+                  <button type="button" class="btn-submit-final">Confirm and Book</button>
+                   <button type="button" class="btn-close-review">Edit Booking</button>
+                </div>
+            </div>
+      </form>
+  </section>
+
+
+      <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand-container">
+                <a href="index.html" class="logo-link">
+                     <img src="img/logo.png" alt="Li'A Home Service" class="footer-logo">
+                     <div class="footer-brand">Li'A Home Service</div>
+                  </a>
+            </div>
+            <div class="footer-contact">
+              <div>liahomecleaningservice@gmail.com</div>
+              <div>+1 (234) 567-890</div>
+              <div>Everett, MA 02149</div>
+            </div>
+          </div>
+    </footer>
+     <script src="script.js"></script>
+</body>
+</html>
