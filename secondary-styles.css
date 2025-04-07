@@ -44,7 +44,6 @@
   --transition-slow: 0.5s ease;
   --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.13);
 }
-
 /* Modern Apple-inspired typography */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -89,13 +88,12 @@ p {
   text-decoration: none;
 }
 .btn-primary {
-  background-color: var(--primary-light);
+  background-color: var(--primary);
   color: white;
   border: none;
 }
 .btn-primary:hover {
-  background-color: var(--primary-dark); 
-  position: relative;
+  background-color: var(--primary-dark); position: relative;
 }
 
 .nav-mobile a::after {
@@ -114,15 +112,14 @@ p {
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(13, 88, 36, 0.25);
 }
-
 .btn-primary:active {
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(13, 88, 36, 0.2);
 }
 .btn-secondary {
   background-color: transparent;
-  color: var(--text-light);
-  border: 1px solid var(--text-light);
+  color: var(--primary);
+  border: 1px solid var(--primary);
 }
 .btn-secondary:hover {
   background-color: rgba(23, 111, 51, 0.08);
@@ -295,7 +292,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2017/07/09/03/19/home-2486092_1280.jpg');
+  background-image: url('img/hero-background-1.png');
   background-size: cover;
   background-position: center;
   transform: translateZ(0);
@@ -391,9 +388,9 @@ p {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 80px;
+  gap: 30px;
 }
-.service-item { 
+/* .service-item { */
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
@@ -406,27 +403,27 @@ p {
   border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 30px;
 }
-.service-item:hover { 
+/* .service-item:hover { */
   transform: translateY(-8px);
   box-shadow: var(--shadow-md);
 }
-.service-icon { 
+/* .service-icon { */
   width: 60px;
   height: 60px;
   margin-bottom: 20px;
 }
-.service-title { 
+/* .service-title { */
   font-size: 1.3rem;
   margin-bottom: 15px;
   color: var(--text-dark);
   font-weight: 600;
 }
-.service-description { 
+/* .service-description { */
   color: var(--text-medium);
   margin-bottom: 25px;
   font-size: 0.95rem;
 }
-.service-link {
+/* .service-link { */
   color: var(--primary);
   font-weight: 500;
   text-decoration: none;
@@ -435,16 +432,16 @@ p {
   font-size: 0.95rem;
   transition: all 0.2s ease;
 }
-.service-link:hover { 
+/* .service-link:hover { */
   color: var(--primary-dark);
 }
-.service-link::after { 
+/* .service-link::after { */
   content: "→";
   margin-left: 5px;
   font-size: 1.1rem;
   transition: transform 0.2s ease;
 }
- .service-link:hover::after { 
+/* .service-link:hover::after { */
   transform: translateX(3px);
 }
 .testimonial-info {
@@ -925,7 +922,7 @@ p {
   transform: translateY(0);
 }
 /* Service image backgrounds to enhance visual appeal */
- .service-item { 
+/* .service-item { */
   position: relative;
 }
 
@@ -944,7 +941,7 @@ p {
   width: 100%;
   overflow: hidden;
 }
- .service-item::before { 
+/* .service-item::before { */
   content: "";
   position: absolute;
   top: 0;
@@ -1021,7 +1018,7 @@ section {
   transform: translateY(-8px) rotate(-45deg);
 }
 /* Fix for existing CSS overrides that might interfere */
-.service-item { 
+/* .service-item { */
   opacity: 1 !important;
   transform: translateY(0) !important;
   background-color: white !important;
@@ -1072,12 +1069,12 @@ section {
   width: 100%;
 }
 /* Improve service items animation */
- .service-item.fade-in { 
+/* .service-item.fade-in { */
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
- .service-item.fade-in.visible { 
+/* .service-item.fade-in.visible { */
   opacity: 1;
   transform: translateY(0);
 }
@@ -1284,7 +1281,20 @@ section {
 .header {
   z-index: 1000;
 }
-
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
 .scroll-down:hover {
   opacity: 1;
 }
@@ -1344,7 +1354,7 @@ section {
   }
 }
 /* Service item background styling */
- .service-item { 
+/* .service-item { */
   position: relative;
 }
 
@@ -1368,7 +1378,7 @@ section {
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
- .service-bg { 
+/* .service-bg { */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1383,12 +1393,13 @@ section {
   filter: blur(2px);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
- .service-item:hover .service-bg { 
+/* .service-item:hover .service-bg { */
   transform: scale(1.05);
   filter: blur(1px);
   opacity: 0.6;
 }
 
+/* #cleaning-service .service-bg { */
 #cleaning-service .service-bg {
   background-image: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%), url('img/logo.png');
 }
@@ -1432,24 +1443,24 @@ section {
   display: flex;
   flex-direction: column;
 }
- .service-icon { 
+/* .service-icon { */
   width: 60px;
   height: 60px;
   margin-bottom: 20px;
 }
- .service-title { 
+/* .service-title { */
   margin-bottom: 15px;
   font-size: 1.3rem;
   font-weight: 600;
 }
- .service-description { 
+/* .service-description { */
   margin-bottom: auto;
   padding-bottom: 20px;
 
 }
- .service-link { 
+/* .service-link { 
   margin-top: auto;
-} 
+} */
 
 .nav-mobile {
   z-index: 1010;
@@ -1590,12 +1601,10 @@ section {
   display: inline-block;
   margin-top: auto;
   padding: 10px 0;
-  color: #ffc547;
+  color: #007bff;
   font-weight: 600;
   text-decoration: none;
   position: relative;
-  align-self: flex-start;
-}
 
 .nav-mobile a::after {
   content: "";
@@ -1614,7 +1623,7 @@ section {
   transition: color 0.3s ease;
 }
 .service-link:hover {
-  color: #ffc547;
+  color: #0056b3;
 }
 .service-link::after {
   content: '';
@@ -1623,7 +1632,7 @@ section {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #ffc547;
+  background-color: #007bff;
   transition: width 0.3s ease;
 }
 .service-link:hover::after {
@@ -1955,3 +1964,5 @@ section {
     transform: translateY(-5px);
   }
 }
+
+

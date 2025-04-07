@@ -3,46 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laundry Services – Book Now - Li'A Home Service</title>
-    <link rel="stylesheet" href="detail.css">  <!-- Link to your existing CSS file -->
-         <!-- Favicon Links -->
-    <!--
-       The favicon.ico file goes into the root directory
-       not into the /img/ folder
-    -->
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <meta name="description" content="Li'A Home Services - Professional home services for cleaning, laundry, meal preparation, and shopping assistance.">
+    <link rel="stylesheet" href="secondary-styles.css">
+    <title> Book Laundry - Li'A Home Services</title>
 
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-     <header class="header">
+    <!-- Header -->
+    <header class="header">
         <div class="header-container">
             <a href="index.html" class="logo-link">
-               <img src="img/logo.png" alt="Li'A Home Service Logo" class="header-logo">
-                <h1 class="logo">Li'A Home Service</h1>
+                <img src="img/logo.png" alt="Li'A Home Services Logo" class="header-logo">
+                <h1 class="logo">LIA HOME SERVICES</h1>
             </a>
             <nav class="nav">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-                <a href="get-quote.html" target="_blank" rel="noopener noreferrer">Get Started</a>
+                        <a href="get-quote.html" class="btn btn-primary">Get Started</a>
             </nav>
-            <img class="hamburger" src="img/hamburger-menu.svg" alt="Menu">
-            <nav class="nav-mobile">
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-                 <a href="get-quote.html" target="_blank" rel="noopener noreferrer">Get Started</a>
-            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
-    <section class="service-details">
+    <!-- Mobile Navigation -->
+    <div class="overlay"></div>
+    <nav class="nav-mobile">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="get-quote.html">Get Started</a>
+    </nav>
+    
+    <!-- Mobile Navigation -->
+    <div class="overlay"></div>
+    <nav class="nav-mobile">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="get-quote.html">Get Started</a>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="nav-mobile">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="get-quote.html">Get a Quote</a>
+        <a href="get-quote.html" class="btn btn-primary">Get Started</a>
+    </nav>
+
+    <section class="service-details" style="margin-top: 7rem;">
       <h2 class="service-title">Laundry Services – Book Now</h2>
       <form action="https://formspree.io/f/mdkkarnp" method="post" class="booking-form">
           <div>
@@ -143,21 +165,245 @@
           </div>
       </form>
   </section>
-      <footer class="footer">
+
+  <style>
+    /* General Form Styling */
+    .service-details {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      font-family: Arial, sans-serif;
+    }
+    
+    .service-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: #218838;
+    }
+    
+    /* Form Layout */
+    .booking-form div {
+      margin-bottom: 1.2rem;
+    }
+    
+    .booking-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #444;
+    }
+    
+    .booking-form input[type="text"],
+    .booking-form input[type="email"],
+    .booking-form input[type="tel"],
+    .booking-form input[type="date"],
+    .booking-form select,
+    .booking-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    
+    .booking-form textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    
+    /* Service Checklist */
+    .service-checklist {
+      padding: 0.5rem 0;
+    }
+    
+    .checklist-options {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .checklist-options li {
+      margin: 0.3rem 0;
+    }
+    
+    .checklist-options input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+    
+    /* Submit Button */
+    .btn-book {
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #218838;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-book:hover {
+      background-color: #218838;
+    }
+    
+    /* Review Overlay */
+    .review-overlay {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    
+    .review-section {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .review-title {
+      text-align: center;
+      color: #218838;
+      margin-bottom: 1.5rem;
+    }
+    
+    .review-content p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+    
+    /* Overlay Buttons */
+    .btn-submit-final,
+    .btn-close-review {
+      margin-top: 1.2rem;
+      padding: 0.75rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-right: 1rem;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-submit-final {
+      background-color: #28a745;
+      color: white;
+    }
+    
+    .btn-submit-final:hover {
+      background-color: #218838;
+    }
+    
+    .btn-close-review {
+      background-color: #dc3545;
+      color: white;
+    }
+    
+    .btn-close-review:hover {
+      background-color: #c82333;
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      .service-details {
+        padding: 1rem;
+      }
+    
+      .review-section {
+        padding: 1.2rem;
+      }
+    
+      .btn-submit-final,
+      .btn-close-review {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+    </style>
+      
+    <!-- Footer -->
+    <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand-container">
-                <a href="index.html" class="logo-link">
-                     <img src="img/logo.png" alt="Li'A Home Service" class="footer-logo">
-                     <div class="footer-brand">Li'A Home Service</div>
-                  </a>
+            <div class="footer-col">
+                <a href="index.html" class="footer-logo">
+                    <img src="img/logo.png" alt="Li'A Home Services">
+                </a>
+                <p class="footer-description">Professional home services tailored to your lifestyle. We provide cleaning, laundry, meal preparation, and shopping assistance throughout Massachusetts.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/lia_home_services_/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="whatsapp://send?phone=+16462616917" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
-            <div class="footer-contact">
-              <div>liahomecleaningservice@gmail.com</div>
-              <div>+1 (234) 567-890</div>
-              <div>Everett, MA 02149</div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="get-quote.html">Get a Quote</a>
+                </div>
             </div>
-          </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Our Services</h3>
+                <div class="footer-links">
+                    <a href="cleaning-BF.html">Cleaning</a>
+                    <a href="laundry-BF.html">Laundry</a>
+                    <a href="meal-prep-BF.html">Meal Preparation</a>
+                    <a href="shopping-BF.html">Shopping Assistance</a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Contact Us</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                    <p class="footer-contact-text">Everett, MA</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone-alt footer-contact-icon"></i>
+                    <a href="tel:+16462616917" class="footer-contact-link">(646) 261-6917</a>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope footer-contact-icon"></i>
+                    <a href="mailto:support@liahomeservices.com" class="footer-contact-link">support@liahomeservices.com</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+<p class="footer-bottom-text">© 2023 Li'A Home Services. All rights reserved.</p>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; padding: 20px 0; border-top: 1px solid #ddd; margin-top: 40px;">
+                Powered by <a href="https://kflix.me/" style="color: #4CAF50; text-decoration: none; font-weight: 500;" onmouseover="this.style.color='#005fa3'; this.style.textDecoration='underline'" onmouseout="this.style.color='#0077cc'; this.style.textDecoration='none'">Kesny Toussaint</a>
+              </p>              <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
     </footer>
-     <script src="script.js"></script>
+
+    <!-- Scroll-to-top Button -->
+    <div class="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

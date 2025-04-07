@@ -1,0 +1,218 @@
+/* Improved Color Variables with Better Contrast */
+:root {
+  /* Primary Brand Colors - Better contrast */
+  --primary: #176f33;      /* Darker green for better contrast */
+  --primary-light: #39a35e;
+  --primary-dark: #0d5824;
+  
+  /* Secondary Colors - More vibrant */
+  --secondary: #f8a718;    /* More vibrant gold */
+  --secondary-light: #ffc547;
+  --secondary-dark: #e08c00;
+  
+  /* Neutral Colors - Higher contrast */
+  --dark: #222222;
+  --medium: #555555;
+  --light: #f8f8f8;
+  
+  /* Background Colors */
+  --bg-light: #ffffff;
+  --bg-off-white: #f5f5f5;
+  --bg-feature: #e8f4ed; /* Lighter green background for better contrast */
+  
+  /* Text Colors - Better contrast */
+  --text-dark: #1a1a1a;
+  --text-medium: #3a3a3a;
+  --text-light: #ffffff;
+  
+  /* Utility Colors - Better visibility */
+  --success: #0e8a2e;
+  --warning: #e09600;
+  --error: #d12323;
+  
+  /* Shadow - More visible */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Visible text styles with better contrast */
+body {
+  color: var(--text-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-dark);
+}
+
+.hero-heading, 
+.hero-subheading {
+  color: #ffffff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+.services-title,
+.testimonials-title {
+  color: var(--primary-dark);
+}
+
+/* Make sure service items are visible */
+.service-item {
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.service-title {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.service-description {
+  color: var(--text-medium);
+}
+
+.service-link {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Make buttons more visible */
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-dark);
+  border: 2px solid var(--primary);
+  font-weight: 700;
+}
+
+.btn-quote {
+  background-color: var(--secondary);
+  color: var(--text-dark);
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+}
+
+/* Better testimonial contrast */
+.testimonial-card {
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-text {
+  color: var(--text-medium);
+}
+
+.testimonial-name {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.testimonial-role {
+  color: var(--dark);
+}
+
+/* Fix nav links */
+.nav a {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.nav-mobile a {
+  color: var(--text-dark);
+  font-weight: 600;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Ensure header logo text is visible */
+.header-logo-text {
+  color: var(--primary-dark) !important;
+  font-weight: 700;
+  background: none !important;
+  -webkit-text-fill-color: var(--primary-dark) !important;
+}
+
+.header-logo-text::after {
+  color: var(--secondary-dark) !important;
+  -webkit-text-fill-color: var(--secondary-dark) !important;
+}
+
+/* Make hero overlay more contrasted */
+.hero::before {
+  background: linear-gradient(135deg, rgba(23, 111, 51, 0.85) 0%, rgba(13, 88, 36, 0.9) 100%);
+}
+
+/* Make hamburger more visible */
+.hamburger span {
+  background-color: var(--primary-dark);
+  height: 3px;
+}
+
+/* Make stars more visible */
+.star {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e08c00'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+}
+
+/* Make footer text more readable */
+.footer-description,
+.footer-links a,
+.footer-contact-text,
+.footer-contact-link {
+  color: #e0e0e0;
+}
+
+.footer-bottom-text,
+.footer-bottom-links a {
+  color: #d0d0d0;
+}
+
+/* Fix service items issues */
+.service-item-content {
+  display: block;
+}
+
+.service-learn-more {
+  color: var(--primary-dark);
+  font-weight: bold;
+}
+
+/* Fix for testimonial-content */
+.testimonial-content {
+  color: var(--text-medium);
+}
+
+/* Fix testimonial footer */
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: white;
+  margin-right: 15px;
+}
+
+.testimonial-info {
+  color: var(--text-medium);
+}
+
+.testimonial-rating i {
+  color: var(--secondary);
+}

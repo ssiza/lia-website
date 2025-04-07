@@ -1,0 +1,1902 @@
+/* Merged CSS from CSS File 1 and CSS File 2 */
+
+/* General Styles (Updated with site-wrapper from file 2) */
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdf5e6;
+    color: #333;
+    scroll-behavior: smooth;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: auto;
+    /* Use the default image dimensions*/
+    background-attachment: scroll;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* Added wrapper from File 2 to make footer stay on the bottom*/
+  .site-wrapper {
+      min-height: 100vh; /* Make it at least full viewport height */
+      display: flex;
+      flex-direction: column;
+  }
+  
+  /* Use media queries to control background size (From File 1)*/
+  @media (min-width: 768px) {
+    /* Large screen sizes */
+    body {
+      background-size: cover;
+      /* Change the background size on larger screens*/
+    }
+  }
+  
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #2f7d46; /* Updated to a visually appealing green */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  a:hover {
+    color: #1e5a30; /* Darker green for hover effect */
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Header (Combined from File 1 and File 2 - with consistent padding) */
+  .header {
+      background-color: #2f7d46; /* Consistent color */
+      padding: 15px 20px; /* Consistent padding */
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%; /* Ensure it fits within the screen */
+    margin: 0 auto;
+    padding: 0 15px; /*Added padding from file 1 to make sure the nav does not touch edge*/
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .header-logo {
+    height: 60px;
+    /* Adjust logo size */
+    max-height: 70px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    width: auto;
+    /* set to auto to maintain aspect ratio*/
+    max-width: 70px;
+    /*Set max width so it does not grow beyond a limit*/
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  
+  /* Default Navigation (Combined from File 1 and File 2)*/
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /*Spacing for the menu items*/
+    margin-right: 20px;
+    /* Move to the right */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  }
+  
+  .nav a {
+    color: #ffffff; /* Keep white for header links */
+    transition: color 0.3s ease-in-out;
+    max-width: 100%; /* Prevent links from overflowing */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    overflow: hidden; /* Hide overflowing text */
+  }
+  
+  .nav a:hover {
+    color: #f1c40f; /* Add a gold hover effect for header links */
+  }
+  
+  /* Mobile Navigation (Combined and cleaned from File 1 and File 2)*/
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Make it fixed for full-screen height */
+    top: 0;
+    right: -100%; /* Initially hidden off-screen */
+    width: 100%;
+    height: 100%;
+    background-color: #2f7d46;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Ensure it appears above other elements */
+    transition: right 0.3s ease, opacity 0.3s ease; /* Smooth slide-in and fade-in effect */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    opacity: 0; /* Ensure it's hidden initially */
+    visibility: hidden; /* Prevent interaction when hidden */
+    max-height: 100vh; /* Ensure it does not exceed the viewport height */
+    box-sizing: border-box; /* Include padding in the total height */
+    padding: 20px 15px; /* Adjust padding for better fit */
+    max-width: 100%; /* Ensure it fits within the screen */
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  .nav-mobile--open {
+    right: 0; /* Slide in from the right */
+    opacity: 1; /* Make it visible */
+    visibility: visible; /* Allow interaction */
+  }
+  
+  .nav-mobile a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Add a thin line between items */
+  }
+  
+  .nav-mobile a:last-child {
+    border-bottom: none; /* Remove the line for the last item */
+  }
+  
+  .nav-mobile a:hover {
+    background-color: #f1c40f;
+    color: #2f7d46;
+  }
+  
+  .hamburger {
+    display: block; /* Ensure it's visible */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    z-index: 1002; /* Ensure it appears above the nav-mobile */
+  }
+  
+  .hamburger i {
+    font-size: 1.8rem; /* Use a modern icon size */
+    color: #ffffff; /* Match the header text color */
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .hamburger:hover i {
+    color: #f1c40f; /* Add a hover effect */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  
+  .hamburger.hamburger--active {
+    transform: rotate(90deg);
+    /* hamburger rotation when active*/
+    transition: transform 0.3s;
+  }
+  
+  /* Mobile Styles and Animation (Combined and fixed from File 1 and File 2)*/
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+      /* Hide the regular nav on mobile */
+      width: 0;
+      /* make sure the element takes up no space */
+      height: 0;
+    }
+  
+    .nav-mobile {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+      /* Make sure hamburger is visible */
+      height: 30px;
+      cursor: pointer;
+    }
+  
+    .nav-mobile--open {
+      max-height: 1000px;
+      /* Ensure menu is large enough */
+      /*Added flex so that the menu is displayed*/
+    }
+  
+    .nav-mobile--open a {
+      opacity: 1;
+      /* Show the links with opacity 1*/
+    }
+  }
+  
+  /* Hero Section (From File 1) */
+  .hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 50px 20px; /* Adjust padding for spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    margin: 0 auto; /*add this to center the content on screen */
+    max-width: 100%; /* Ensure hero section fits within the screen */
+    padding: 20px; /* Adjust padding for smaller screens */
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+  /*add max width so that it does not stretch on large resolutions*/
+  @media (min-width:768px) {
+      .hero {
+          max-width: 1600px;
+      }
+  }
+  
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background */
+    padding: 20px;
+    border-radius: 2px; /* Add rounded corners */
+    max-width: 600px; /* Limit the width of the text box */
+    text-align: center;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.7);
+  }
+  
+  .hero-heading {
+    font-size: 2.5rem; /* Adjust font size */
+    margin-bottom: 15px; /* Add spacing below the heading */
+    animation: fade-in 1.5s ease-in;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.184);
+  }
+  
+  .quote-container {
+    margin-top: 20px; /* Add spacing above the button */
+  }
+  
+  .btn-quote {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #27ae60;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-quote:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #1e8449;
+  }
+  
+  /* Responsive adjustments for phones */
+  @media screen and (max-width: 768px) {
+    .hero {
+      padding: 30px 15px; /* Reduce padding for smaller screens */
+    }
+  
+    .hero-content {
+      max-width: 90%; /* Shrink the content width */
+      padding: 15px; /* Reduce padding inside the box */
+    }
+  
+    .hero-heading {
+      font-size: 1.8rem; /* Shrink the heading font size */
+    }
+  
+    .btn-quote {
+      padding: 10px 20px; /* Reduce button size */
+      font-size: 16px; /* Shrink button text size */
+    }
+  }
+  
+  /* Services Section (Mostly from File 1, with flex 1 from file 2 to allow it to grow)*/
+  .services {
+    background-color: #ecf0f1;
+    padding: 50px 20px;
+    text-align: center;
+    margin: flex; /*add this to center the content on screen */
+      flex: 1; /* make the services section grow and take up the content of the middle */
+  }
+  @media (min-width:768px) {
+      .services {
+          max-width: 1600px;
+      }
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 10px; /* Add padding to prevent content from touching edges */
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  .service-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    max-width: 100%; /* Ensure service items fit within the screen */
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .service-item-content {
+    flex: 1;
+    z-index: 2;
+  }
+  
+  .service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .service-item p {
+    color: #777;
+    margin: 0;
+  }
+  
+  .service-image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: fade-in-from-right-service 1.5s ease-in forwards;
+  }
+  
+  @keyframes fade-in-from-right-service {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .btn-quote:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      box-shadow 0.3s;
+  }
+  
+  .service-item:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      box-shadow 0.3s;
+  }
+  
+  /* second services section styles */
+  @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+  @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+  
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    --color: rgba(30, 30, 30);
+    --bgColor: rgb(215, 215, 215);
+    min-height: 100vh;
+  
+    display: grid;
+    align-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  
+    font-family: "Oxygen", sans-serif;
+    color: var(--color);
+    background: var(--bgColor);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  ol {
+    width: min(60rem, 90%);
+    margin-inline: auto;
+  
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  
+    list-style: none;
+    counter-reset: cardnr;
+    justify-content: center;
+  }
+  
+  li {
+    --frontColor: white;
+    --width: 10em;
+    --inlineP: 0.5rem;
+    --borderR: 4rem;
+    --arrowW: 2rem;
+    --arrowH: 1.5rem;
+  
+    counter-increment: cardnr;
+    width: calc(var(--width) - var(--inlineP) * 2);
+    display: grid;
+    grid-template:
+      "icon" var(--borderR)
+      "title"
+      "descr" 1fr;
+    margin-inline: var(--inlineP);
+    margin-bottom: calc(var(--borderR));
+    position: relative;
+  }
+  li .icon,
+  li .title,
+  li .descr {
+    background: var(--frontColor);
+    padding-inline: 1rem;
+    padding-bottom: 1rem;
+  }
+  li .icon,
+  li .title {
+    color: var(--accent-color);
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+  
+  li .title,
+  li .descr {
+    filter: drop-shadow(0.125rem 0.125rem 0.075rem rgba(0, 0, 0, 0.25));
+  }
+  li .icon {
+    grid-area: icon;
+    font-size: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: var(--borderR) 0 0 0;
+    position: relative;
+  }
+  
+  li .title {
+    grid-area: title;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  li .descr {
+    grid-area: descr;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  li .descr::before {
+    content: "";
+    width: var(--arrowW);
+    height: var(--arrowH);
+    position: absolute;
+    right: 1.5rem;
+    top: 100%;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+  }
+  
+  li::after {
+    content: counter(cardnr, decimal-leading-zero);
+    position: absolute;
+    z-index: -1;
+  
+    left: calc(var(--inlineP) * -1);
+    right: calc(var(--inlineP) * -1);
+    top: var(--borderR);
+    bottom: calc(var(--borderR) * -1);
+  
+    display: flex;
+    align-items: flex-end;
+    background: var(--accent-color);
+    background-image: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.25),
+      transparent 25% 75%,
+      rgba(0, 0, 0, 0.25)
+    );
+    border-radius: 0 0 var(--borderR) 0;
+  
+    --pad: 1rem;
+    padding: var(--pad);
+    font-size: calc(var(--borderR) - var(--pad) * 2);
+    color: white;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    height: var(--borderR);
+    top: calc(100% + var(--borderR) - 2px);
+    left: calc(var(--inlineP) * -1);
+    right: calc(var(--inlineP) * -1);
+    border-radius: 0 var(--borderR) 0 0;
+  
+    background-image: linear-gradient(var(--accent-color), transparent 60%);
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+  
+  .credits {
+    margin-top: 2rem;
+    text-align: right;
+  }
+  .credits a {
+    color: var(--color);
+  }
+  
+  
+  /* Footer (Combined from File 1 and File 2) */
+  .footer {
+    background-color: #2f7d46;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px; /* Increased gap for better spacing */
+      padding: 40px 20px; /* Adjusted padding for consistent spacing */
+      background-color: #f8f9fa;
+      color: #333;
+      max-width: 100%; /* Ensure footer fits within the screen */
+      box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px; /* Consistent gap between sections */
+      flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+  }
+  
+  .footer-brand-container {
+      flex: 1;
+      min-width: 200px;
+      text-align: center; /* Center-align for better layout */
+  }
+  
+  .footer-contact, .footer-links, .footer-social {
+      flex: 1;
+      min-width: 150px;
+      text-align: center; /* Center-align all sections */
+  }
+  
+  .footer-contact ul, .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      padding: 0 10px; /* Add padding to prevent content from touching edges */
+      box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  .footer-contact ul li, .footer-links ul li {
+      margin-bottom: 10px; /* Consistent spacing between list items */
+  }
+  .footer-contact ul li a {
+      color: #2f7d46; /* Match the updated link color */
+      transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-contact ul li a:hover {
+      color: #1e5a30; /* Darker green for hover effect */
+  }
+  
+  .footer-links ul {
+      list-style: none;
+      padding: 0;
+  }
+  
+  .footer-links ul li {
+      margin-bottom: 10px;
+  }
+  
+  .footer-links ul li a {
+      color: #2f7d46; /* Match the updated link color */
+      transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-links ul li a:hover {
+      color: #1e5a30; /* Darker green for hover effect */
+  }
+  
+  .footer-social .social-icons a {
+      margin-right: 10px;
+      font-size: 1.5rem;
+      color: #2f7d46; /* Ensure the icons are visible with the updated green color */
+      transition: color 0.3s ease-in-out;
+      display: inline-block; /* Ensure proper alignment */
+  }
+  
+  .footer-social .social-icons a:hover {
+      color: #1e5a30; /* Darker green for hover effect */
+  }
+  
+  /* Ensure font-awesome icons are loaded */
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  
+  .footer-social .social-icons a {
+      margin-right: 10px;
+      font-size: 1.5rem;
+      color: #2f7d46; /* Updated to match link color */
+      transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-social .social-icons a:hover {
+      color: #1e5a30; /* Darker green for hover effect */
+  }
+  
+  .footer-social .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Increased gap between icons */
+  }
+  
+  .footer-social .social-icons a {
+      font-size: 2rem; /* Ensure icons are prominent */
+      color: #2f7d46; /* Match the updated green color */
+      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .footer-social .social-icons a:hover {
+      color: #1e5a30; /* Darker green for hover effect */
+      transform: scale(1.2); /* Slightly enlarge on hover */
+  }
+  
+  .footer-bottom {
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      padding-top: 20px; /* Increased padding for better separation */
+  }
+  
+  .footer-bottom ul {
+  color: #2f7d46; /* Match the updated link color */
+  transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: center; /* Changed from space-between to center for mobile */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+      flex-wrap: wrap; /*wrap the content of footer when not enough space*/
+      gap: 20px; /* add gap between items */
+  }
+  
+  .footer-brand-container {
+    display: flex;
+    align-items: center;
+    text-align: center; /* change from left to center */
+  }
+  
+  .footer-logo {
+    height: 60px;
+    /* Adjust logo size */
+    max-height: 70px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    width: auto;
+    /* set to auto to maintain aspect ratio*/
+    max-width: 70px;
+    /*Set max width so it does not grow beyond a limit*/
+  }
+  
+  .footer-brand {
+    text-align: center; /* change from left to center*/
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .footer-contact {
+    text-align: center; /*change from right to center */
+    /*add word-wrap to ensure text does not overflow*/
+      /* Add some space between this and the brand area*/
+  
+  }
+  
+  .footer-contact div {
+    margin-bottom: 5px;
+  }
+  @media (min-width: 768px) {
+      .footer-top {
+          justify-content: space-between; /* Space out sections on larger screens */
+      }
+  
+      .footer-brand-container, .footer-contact, .footer-links, .footer-social {
+          text-align: left; /* Align left for larger screens */
+      }
+  }
+  
+  /* Animations (From file 1)*/
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fade-in 1.5s ease-in;
+  }
+  
+  /* From details.css */
+  /* ==========================================================================
+     Variables
+     ========================================================================== */
+     :root {
+      --primary-color: #2F7D46;
+      --secondary-color: #27ae60;
+      --text-color: #333;
+      --white-color: #fff;
+      --black-color: #000;
+      --light-grey: #f9f9f9;
+      --medium-grey: #ddd;
+      --error-color: #f44336;
+       --hover-color: #d32f2f;
+        --success-color: #4CAF50;
+       --hover-success-color: #367c39;
+      --font-base: "Nunito", sans-serif;
+  
+  }
+  /* ==========================================================================
+  General Styling
+  ========================================================================== */
+  body {
+   font-family: var(--font-base);
+   margin: 0;
+   padding: 0;
+   background-color: var(--light-grey);
+   color: var(--text-color);
+   line-height: 1.6;
+   min-height: 100vh;
+  }
+  
+  a {
+   text-decoration: none;
+   color: inherit;
+  }
+  
+  ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+  }
+  
+  /* ==========================================================================
+    Header
+    ========================================================================== */
+  .header {
+   background-color: var(--primary-color);
+   padding: 8px 15px;
+   color: var(--white-color);
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+  }
+  
+  .header-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   max-width: 100%; /* Ensure it fits within the screen */
+   margin: 0 auto;
+   padding: 0 10px; /* Added padding from file 1 to make sure the nav does not touch edge */
+   box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  .logo-link {
+   display: flex;
+   align-items: center;
+   text-decoration: none;
+   color: inherit;
+  }
+  
+  .header-logo {
+   height: 60px;
+   max-height: 70px;
+   margin-right: 10px;
+   vertical-align: middle;
+   display: inline-block;
+   width: auto;
+   max-width: 70px;
+  }
+  
+  .logo {
+   font-size: 24px;
+   font-weight: bold;
+   margin: 0;
+   vertical-align: middle;
+   display: inline-block;
+  }
+  
+  /* Hamburger Menu Icon */
+  .hamburger {
+     display: none;
+     cursor: pointer;
+     width: 30px;
+     height: auto;
+     transition: transform 0.3s;
+     transform: rotate(0deg);
+   }
+  
+  .hamburger.hamburger--active {
+       transform: rotate(90deg);
+       transition: transform 0.3s;
+  }
+  
+  /* Navigation */
+  .nav {
+   display: flex;
+   gap: 20px;
+   margin-left: auto;
+   flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  }
+  
+  .nav a {
+   color: var(--white-color);
+   padding: 5px 10px;
+   transition: color 0.3s ease-in-out;
+   max-width: 100%; /* Prevent links from overflowing */
+   white-space: nowrap; /* Prevent text wrapping */
+   text-overflow: ellipsis; /* Add ellipsis for long text */
+   overflow: hidden; /* Hide overflowing text */
+  }
+  
+  .nav a:hover {
+   color: var(--black-color);
+  }
+  
+  /* Mobile Navigation Menu */
+  
+  .nav-mobile a {
+     display: block;
+     margin-bottom: 10px;
+     color: var(--white-color);
+     text-decoration: none;
+     padding: 10px;
+     opacity: 0;
+     transition: opacity 0.3s ease-out;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Add a thin line between items */
+  }
+  
+  .nav-mobile a:last-child {
+    border-bottom: none; /* Remove the line for the last item */
+  }
+  
+  .nav-mobile a:hover {
+     color: var(--black-color);
+  }
+  
+  /* ==========================================================================
+    Service Details Section
+    ========================================================================== */
+  .service-details {
+     padding: 50px 20px;
+     text-align: center;
+     opacity: 0;
+     animation: fade-up 1s ease-in-out forwards;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     min-height: calc(100vh - 117px);
+     }
+  
+  .service-title {
+   font-size: 2rem;
+   margin-bottom: 30px;
+     opacity: 0;
+     transform: translateY(20px);
+     animation: fade-up-title 0.8s ease-in-out 0.3s forwards;
+  }
+  
+  @keyframes fade-up-title {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+  }
+  
+  .service-card {
+   background-color: var(--white-color);
+   padding: 20px;
+   margin-bottom: 20px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   opacity: 0;
+   transform: translateY(20px);
+   animation: fade-up-card 0.8s ease-in-out 0.5s forwards;
+   display: flex;
+   overflow: hidden;
+   max-width: 800px;
+   width: 95%;
+  }
+  
+  @media (min-width: 768px){
+    .service-card{
+       width: 400px; /* On larger screens it grows to the defined max width*/
+    }
+  }
+  
+  .service-card-text {
+     flex: 1;
+     padding-right: 20px;
+  }
+  
+  .service-card-image-container {
+     flex: 0 0 50%;
+     overflow: hidden;
+     max-height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+  }
+  
+  .service-card-image {
+     width: 100%;
+     height: auto;
+     object-fit: cover;
+     display: block;
+  }
+  
+  @keyframes fade-up-card {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+  }
+  
+  .service-area-title {
+   font-size: 1.5rem;
+   margin-bottom: 10px;
+     color: var(--primary-color);
+     font-weight: bold;
+     text-align: center;
+  }
+  
+  .service-list {
+   padding-left: 20px;
+   margin-bottom: 10px;
+   text-align: left;
+  }
+  
+  .service-list li {
+     margin-bottom: 5px;
+     list-style-type: disc;
+  }
+  
+  .note {
+   font-style: italic;
+   color: #777;
+  }
+  
+  /* ==========================================================================
+    Book Button
+    ========================================================================== */
+  .btn-book {
+   display: inline-block;
+   margin-top: 20px;
+   padding: 15px 30px;
+   background-color: var(--secondary-color);
+   color: var(--white-color);
+   font-size: 18px;
+     border-radius: 50px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   transition: background-color 0.3s;
+     opacity: 0;
+     transform: translateY(20px);
+     animation: fade-up-button 0.8s ease-in-out 0.8s forwards;
+  }
+  @keyframes fade-up-button {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+  }
+  
+  .btn-book:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+   background-color: var(--black-color);
+  }
+  
+  /* ==========================================================================
+    Get a Quote Button
+     ========================================================================== */
+  .btn-quote {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 15px 30px;
+    background-color: var(--secondary-color);
+  color: var(--white-color);
+  font-size: 18px;
+  border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fade-up-button 0.8s ease-in-out 0.8s forwards;
+  }
+  
+  .btn-quote:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+  }
+  
+  /* ==========================================================================
+    Footer
+    ========================================================================== */
+  
+  .footer {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 20px;
+  text-align: center;
+  }
+  
+  .footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+   flex-wrap: wrap;
+   gap: 20px;
+  }
+  
+  .footer-brand-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  }
+  
+  .footer-logo {
+  height: 60px;
+  max-height: 70px;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  width: auto;
+  max-width: 70px;
+  }
+  
+  .footer-brand {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  }
+  
+  .footer-contact {
+  text-align: center;
+  }
+  
+  .footer-contact div {
+  margin-bottom: 5px;
+  }
+  
+  @media (min-width: 768px) {
+   .footer-container {
+     justify-content: space-between;
+  }
+  .footer-brand-container {
+     text-align: left;
+  }
+  .footer-brand {
+     text-align: left;
+  }
+  .footer-contact {
+      text-align: right;
+  }
+  }
+  
+  
+  /* ==========================================================================
+   Animations and Effects
+   ========================================================================== */
+  .fade-in {
+   opacity: 0;
+   transform: translateY(20px);
+   transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .fade-in--active {
+   opacity: 1;
+   transform: translateY(0);
+  }
+  
+  .btn-quote:hover {
+   transform: scale(1.1) translateY(-5px); 
+   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+  }
+  
+  .service-item:hover {
+   transform: translateY(-5px) scale(1.03);
+   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+  }
+  
+  /* Animation for the service section itself */
+  @keyframes fade-up {
+   from {
+       opacity: 0;
+       transform: translateY(20px);
+   }
+   to {
+       opacity: 1;
+       transform: translateY(0);
+   }
+  }
+  
+  
+  /* ==========================================================================
+    Responsive Design
+    ========================================================================== */
+   @media (max-width: 768px) {
+   .header-container {
+     flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; /* Allow header items to wrap */
+   }
+  
+   .nav {
+     display: none;
+     width: 0;
+     height: 0;
+   }
+  
+    .nav-mobile {
+         display: flex;
+         flex-direction: column;
+         position: absolute;
+         top: 60px;
+         right: 1px;
+         background-color: var(--primary-color);
+         padding: 5px;
+         border-radius: 5px;
+         max-height: 0;
+         overflow: hidden;
+         transition: max-height 0.3s ease-out;
+     }
+  
+       .nav-mobile--open {
+         max-height: 1000px;
+     }
+  
+     .nav-mobile--open a {
+         opacity: 1;
+     }
+  
+   .hamburger {
+     display: block;
+       height: 30px;
+   }
+       .service-details {
+       padding: 40px 10px;
+     }
+  
+     .hero {
+      padding: 15px; /* Reduce padding for smaller screens */
+    }
+  
+    .services-container {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust grid for smaller screens */
+    }
+  
+    .footer-container {
+      padding: 20px; /* Adjust padding for smaller screens */
+    }
+  
+    .footer-top {
+      flex-direction: column; /* Stack footer sections vertically */
+      gap: 20px; /* Add spacing between sections */
+    }
+  
+    .bottom-nav {
+      padding: 10px 0; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  /* ==========================================================================
+    Booking Form
+    ========================================================================== */
+  .service-details .booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   opacity: 1;
+   transform: translateY(0);
+  
+  }
+  
+  .service-details .booking-form div {
+  margin-bottom: 10px;
+  }
+  
+  .service-details .booking-form input[type="text"],
+  .service-details .booking-form input[type="email"],
+  .service-details .booking-form input[type="tel"],
+  .service-details .booking-form input[type="date"],
+  .service-details .booking-form input[type="time"],
+  .service-details .booking-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+   border: 1px solid var(--medium-grey);
+  border-radius: 4px;
+  box-sizing: border-box;
+  }
+  
+  .service-details .booking-form textarea {
+  height: 100px;
+  resize: vertical;
+  }
+  
+  .service-details .booking-form input[type="checkbox"] {
+  margin-right: 5px;
+  }
+  
+  
+  .service-details .service-checklist {
+  border: 1px solid var(--medium-grey);
+  border-radius: 4px;
+  padding: 10px;
+  }
+  
+  .service-details .checklist-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  }
+  
+  .service-details .checklist-options li {
+  width: 50%;       /* Each item takes 50% of the width, making 2 columns*/
+  margin-bottom: 5px; /* Space between rows */
+  padding-right: 10px; /* Some right padding to separate items within a row*/
+  box-sizing: border-box; /* Include padding in the element's total width */
+  display: flex;
+  align-items: center;
+  }
+  
+  
+  .service-details .checklist-options li label {
+  margin-left: 5px;
+  }
+  
+  .service-details .checklist-options li input[type="checkbox"] {
+  vertical-align: middle;
+  margin-right: 5px;
+  }
+  .service-checklist {
+   padding: 10px;
+  }
+  .checklist-options {
+  list-style: none;
+  padding: 0;
+  }
+  
+  .checklist-options > li {
+  margin-bottom: 5px;
+  position: relative;
+  }
+  
+  
+  /* Review section */
+  .service-details .review-overlay {
+  display: none;
+  position: fixed; /* Overlay on top of everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  }
+  
+  .service-details .review-overlay.active {
+  display: flex;
+  }
+  
+  .service-details .review-section {
+   position: relative; /* Needed for absolute positioning the button */
+   max-width: 600px;
+   margin: 20px auto;
+   padding: 20px;
+   background-color: var(--white-color);
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-details .review-content{
+  text-align: left;
+  }
+  .service-details .review-title {
+   text-align: center;
+   font-size: 1.5rem;
+   margin-bottom: 15px;
+   color: var(--primary-color);
+  }
+  .service-details .review-section p {
+  margin-bottom: 8px;
+  }
+  .service-details .btn-close-review {
+   background-color: var(--error-color);
+   color: var(--white-color);
+   padding: 10px 15px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   margin-top: 10px;
+  }
+  
+  .service-details .btn-close-review:hover {
+   background-color: var(--hover-color);
+  }
+  
+  .service-details .btn-submit-final {
+   background-color: var(--success-color);
+   color: var(--white-color);
+   padding: 10px 15px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   margin-top: 10px;
+    margin-right: 5px;
+  }
+  
+  .service-details .btn-submit-final:hover {
+    background-color: var(--hover-success-color);
+  }
+  
+  
+  /* Hamburger Menu Icon */
+  .hamburger {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    z-index: 1002; /* Ensure it appears above the nav-mobile */
+  }
+  
+  .hamburger i {
+    font-size: 1.8rem; /* Use a modern icon size */
+    color: #ffffff; /* Match the header text color */
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .hamburger:hover i {
+    color: #f1c40f; /* Add a hover effect */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  
+  .hamburger.hamburger--active {
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+  }
+  
+  /* Mobile Navigation Menu */
+  .nav-mobile {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially hidden off-screen */
+    width: 100%;
+    height: 100%;
+    background-color: #2f7d46;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Ensure it appears above other elements */
+    transition: right 0.3s ease, opacity 0.3s ease;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    opacity: 0; /* Ensure it's hidden initially */
+    visibility: hidden; /* Prevent interaction when hidden */
+    max-height: 100vh; /* Ensure it does not exceed the viewport height */
+    box-sizing: border-box; /* Include padding in the total height */
+    padding: 20px 15px; /* Adjust padding for better fit */
+    max-width: 100%; /* Ensure it fits within the screen */
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  .nav-mobile--open {
+    right: 0; /* Slide in from the right */
+    opacity: 1; /* Make it visible */
+    visibility: visible; /* Allow interaction */
+  }
+  
+  .nav-mobile a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Add a thin line between items */
+  }
+  
+  .nav-mobile a:last-child {
+    border-bottom: none; /* Remove the line for the last item */
+  }
+  
+  .nav-mobile a:hover {
+    background-color: #f1c40f;
+    color: #2f7d46;
+  }
+  
+  /* Media Queries for Mobile */
+  @media (max-width: 768px) {
+    .nav {
+      display: none; /* Hide the regular nav */
+    }
+  
+    .hamburger {
+      display: block; /* Make hamburger visible */
+    }
+  }
+  
+  /* Bottom Navigation Bar */
+  .bottom-nav {
+    display: none; /* Hidden by default for larger screens */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2f7d46;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    max-width: 100%; /* Ensure it fits within the screen width */
+    box-sizing: border-box; /* Include padding in the total width */
+  }
+  
+  .bottom-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    padding: 0px 25px;
+    max-width: 25%; /* Ensure each item fits within the navigation bar */
+    overflow: hidden; /* Prevent content overflow */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  }
+  
+  .bottom-nav a:hover {
+    color: #f1c40f;
+  }
+  
+  .bottom-nav i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .bottom-nav a:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%; /* Center vertically */
+    transform: translateY(-70%); /* Adjust for perfect centering */
+    height: 60%; /* Adjust height to make it visually balanced */
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.3); /* Add a thin vertical line between items */
+  }
+  
+  /* Show bottom navigation on small screens */
+  @media (max-width: 768px) {
+    .bottom-nav {
+      display: flex;
+    }
+  
+    .nav {
+      display: none; /* Hide the regular nav */
+    }
+  
+    body {
+      padding-bottom: 60px; /* Add padding to prevent footer content from being hidden */
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .bottom-nav {
+      display: none; /* Explicitly hide the bottom navigation on larger screens */
+    }
+  }
+  
+  /* Contact Info Section */
+  .contact-info {
+      background-color: #f8f9fa;
+      padding: 40px 20px;
+      text-align: center;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-info h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #2f7d46;
+  }
+  
+  .contact-info p {
+      font-size: 16px;
+      margin: 10px 0;
+  }
+  
+  .contact-info a {
+      color: #2f7d46;
+      text-decoration: none;
+      font-weight: bold;
+  }
+  
+  .contact-info a:hover {
+      color: #1e5a30;
+  }
+  
+  /* Contact Form Section */
+  .contact-form {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 40px auto;
+      max-width: 600px;
+  }
+  
+  .contact-form h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #2f7d46;
+      text-align: center;
+  }
+  
+  .contact-form label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #333;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+  }
+  
+  .contact-form button {
+      background-color: #2f7d46;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+      background-color: #1e5a30;
+  }
+  
+  /* Map Section */
+  .map {
+      margin: 40px 0;
+      text-align: center;
+  }
+  
+  .map h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #2f7d46;
+  }
+  
+  /* FAQ Section */
+  .faq {
+      background-color: #f8f9fa;
+      padding: 40px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 40px auto;
+      max-width: 800px;
+  }
+  
+  .faq h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #2f7d46;
+      text-align: center;
+  }
+  
+  .faq details {
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      background-color: #fff;
+  }
+  
+  .faq summary {
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #333;
+  }
+  
+  .faq summary:hover {
+      color: #2f7d46;
+  }
+  
+  .faq p {
+      font-size: 14px;
+      margin-top: 10px;
+      color: #555;
+  }
+  
+  /* Footer Section */
+  .footer {
+      background-color: #2f7d46;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+  }
+  
+  .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+  }
+  
+  .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+  }
+  
+  .footer-brand-container {
+      flex: 1;
+      text-align: center;
+  }
+  
+  .footer-contact ul,
+  .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+  
+  .footer-contact ul li,
+  .footer-links ul li {
+      margin-bottom: 10px;
+  }
+  
+  .footer-social .social-icons a {
+      color: 2f7d46;
+      margin: 0 10px;
+      font-size: 20px;
+      transition: color 0.3s ease;
+  }
+  
+  .footer-social .social-icons a:hover {
+      color: #f1c40f;
+  }
+  
+  .footer-bottom {
+      margin-top: 20px;
+      font-size: 14px;
+  }
+  
+  .footer-bottom a {
+      color: #f1c40f;
+      text-decoration: none;
+  }
+  
+  .footer-bottom a:hover {
+      text-decoration: underline;
+  }
+  
+  /* Sticky CTA Button */
+  .sticky-cta {
+      position: fixed;
+      bottom: 80px; /* Adjusted to avoid overlapping the bottom navigation bar */
+      right: 20px;
+      background-color: #2f7d46;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .sticky-cta:hover {
+      background-color: #1e5a30;
+      transform: scale(1.1);
+  }
+  
+  
+  /* FAQ Section */
+  #faq {
+      padding: 40px 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 40px auto;
+      max-width: 800px;
+  }
+  
+  #faq h2 {
+      font-size: 28px;
+      color: #2f7d46;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+  
+  .faq-item {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #ffffff;
+  }
+  
+  .faq-item h3 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+  }
+  
+  .faq-item p {
+      font-size: 14px;
+      color: #555;
+  }
+  /* Trust Badge Styles */
+  .trust-badge {
+    position: absolute; /* Change to absolute to allow it to overlap the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -50px auto 30px; /* Pull it up to hover between sections */
+    width: 105px;
+    height: 105px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it appears above other elements */
+    left: 75%; /* Position it 75% to the right */
+    transform: translateX(-50%); /* Adjust to center the badge */
+  }
+  
+  .trust-badge img {
+    width: 100%; /* Ensure the image fills the badge */
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 11; /* Ensure the image is above the badge background */
+  }
